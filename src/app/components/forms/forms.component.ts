@@ -1,16 +1,36 @@
 import { Component } from '@angular/core';
+import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 @Component({
   selector: 'app-forms',
   standalone: true,
-  imports: [],
+  imports: [
+    FormsModule,
+    ReactiveFormsModule
+  ],
   templateUrl: './forms.component.html',
   styleUrl: './forms.component.scss'
 })
 export class FormsComponent {
 
   results = [];
+  formGroup!: FormGroup;
 
-  constructor() {
+  constructor(private formBuilder: FormBuilder) {
+  }
+
+  ngOnInit(): void {
+    this.formGroup = this.formBuilder.group({
+      hour: '',
+      showClosed: false
+    })
+  }
+
+  onSubmit(): void {
+    console.log(this.formGroup.value)
+  }
+
+  onClean(): void {
+    this.formGroup.reset();
   }
 }
