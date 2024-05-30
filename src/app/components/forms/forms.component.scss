@@ -47,26 +47,30 @@
   color: var(--medium-text-grey);
 }
 
+.form-group .radio-wrapper input{
+  margin-right: 5px;
+}
+
 .form-group .radio-wrapper span{
   position: absolute;
-  right: 0px;
+  right: 0;
   margin-bottom: 32px;
 }
 
-.form-group .radio-check-box {
+.form-group .check-box-wrapper {
   margin: 32px 0;
   color: var(--light-grey);
-  position: relative;
   width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 12px;
 }
 
-.form-group .radio-check-box span {
-  position: absolute;
-  right: 0;
-}
 
 .form-group .btn-wrapper {
   display: flex;
+  flex-direction: column;
   gap: 12px;
   align-items: center;
   justify-content: center;
@@ -92,4 +96,16 @@
 .form-group .btn-wrapper .btn-secondary{
   background-color: transparent;
   border: 2px solid var(--light-text-grey);
+}
+
+@media (min-width: 768px){
+  .form-group .btn-wrapper{
+    display: flex;
+    flex-direction: row;
+  }
+
+  .form-group .check-box-wrapper {
+    flex-direction: row;
+    justify-content: space-between;
+  }
 }
